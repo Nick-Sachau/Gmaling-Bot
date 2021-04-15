@@ -19,7 +19,7 @@ module.exports = {
                 }
             }
 
-            if(playerCoins >= Number(args[0])) {
+            if(playerCoins >= Number(args[0]) && Number(args[0]) % 100 == 0) {
                 let playerRoll
                 let botRoll = Math.ceil(Math.random()*12);
                 let percentage = Math.ceil(Math.random()*4);
@@ -87,6 +87,8 @@ module.exports = {
                         }
                     }
                 }
+            }else if(Number(args[0]) % 100 != 0){
+                message.channel.send('you need to make it divisable by 100');
             }else {
                 message.channel.send('You do not have enough coins')
             }
