@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { token } = require('./token.json');
-const prefix = '..';
+const prefix = '$';
 
 const fs = require('fs');
 client.commands = new Discord.Collection();
@@ -29,6 +29,16 @@ client.on('message', message => {
   
     if (command === 'ping') {
       client.commands.get('ping').execute(message, args);
+    }else if(command === 'signup'){
+      client.commands.get('signup').execute(message, args, client);
+    }else if(command === 'coins'){
+      client.commands.get('coins').execute(message, args, client);
+    }else if(command === 'roll'){
+      client.commands.get('dice').execute(message, args, client);
+    }else if(command === 'win'){
+      client.commands.get('win').execute(message, args, client);
+    }else if(command === 'jackpot'){
+      client.commands.get('jackpot').execute(message, args, client)
     }else {
       client.commands.get('failed').execute(message, args);
     }
