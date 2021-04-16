@@ -39,6 +39,8 @@ client.on('message', message => {
       client.commands.get('win').execute(message, args, client);
     }else if(command === 'jackpot'){
       client.commands.get('jackpot').execute(message, args, client)
+    }else if(command === 'collect'){
+      client.commands.get('collect').execute(message, args, client)
     }else {
       client.commands.get('failed').execute(message, args);
     }
